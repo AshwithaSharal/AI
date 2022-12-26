@@ -26,7 +26,7 @@ def bfs(visited,graph,node):<br>
             queue.append(neighbour)<br>
 print("Following is the Breadth-First Search")<br>
 bfs(visited,graph,'1')<br>
-*OUTPUT:*
+*OUTPUT:*<br>
 ![image](https://user-images.githubusercontent.com/98145023/209536712-bd97aaaa-090a-4b12-a214-3d76ad8ed644.png)<br><br><br>
 
 # Write a Program to Implement Depth First Search using Python.
@@ -49,7 +49,9 @@ def dfs(visited, graph, node): #function for dfs<br>
    dfs(visited, graph, neighbour)<br>
 ** Driver Code**<br>
 print("Following is the Depth-First Search")<br>
-dfs(visited, graph, '5')<br><br><br>
+dfs(visited, graph, '5')<br>
+*OUTPUT:*<br>
+![image](https://user-images.githubusercontent.com/98145023/209542631-f41995f9-d273-4e06-9ca0-6d585c0c8a44.png)<br><br><br>
 
 # Write a Program to Implement Best First Search using Python.
 from queue import PriorityQueue<br>
@@ -88,8 +90,8 @@ source = int(input("Enter the Source Node: "))<br>
 target = int(input("Enter the Target/Destination Node: "))<br>
 print("\nPath: ", end = "")<br>
 best_first_search(source, target, v)<br>
-OUTPUT:
-<br><br>
+*OUTPUT:*<br>
+![image](https://user-images.githubusercontent.com/98145023/209542744-8aeb63e0-c6cf-479e-9af8-20101ce4b09b.png)<br><br><br>
 
 
 
@@ -114,7 +116,9 @@ def waterJugSolver(amt1, amt2):<br>
     else:<br>
         return False<br>
 print("Steps: ")<br>
-waterJugSolver(0, 0)<br><br><br>
+waterJugSolver(0, 0)<br>
+*OUTPUT:*<br>
+![image](https://user-images.githubusercontent.com/98145023/209542842-8f269020-5291-4a66-b1e2-206b0926bccc.png)<br><br><br>
 
 
 # Write a Program to Implement Tower of Hanoi usingPython.
@@ -126,7 +130,9 @@ def TowerOfHanoi(n , source, destination, auxiliary):<br>
     print ("Move disk",n,"from source",source,"to destination",destination)<br>
     TowerOfHanoi(n-1, auxiliary, destination, source)<br>
 n = 3<br>
-TowerOfHanoi(n,'A','B','C')<br><br><br>
+TowerOfHanoi(n,'A','B','C')<br>
+*OUTPUT:*<br>
+![image](https://user-images.githubusercontent.com/98145023/209542939-fa0a67f8-7462-46d9-934c-da86e575b4c1.png)<br><br><br>
 
 # Write a Program to Implement Tic-Tac-Toe application using Python.
 import numpy as np<br>
@@ -215,7 +221,9 @@ def play_game():<br>
             if winner != 0:<br>
                 break<br>
     return(winner)<br>
-print("Winner is: " + str(play_game()))<br><br><br>
+print("Winner is: " + str(play_game()))<br>
+*OUTPUT:*<br>
+![image](https://user-images.githubusercontent.com/98145023/209543038-6473112b-f656-46f6-85e4-80081227166e.png)<br><br><br>
 
 
 # Write a Program to Implement 8-Puzzle Problem using Python.
@@ -372,3 +380,6 @@ final = [ [ 1, 2, 3 ],<br>
 empty_tile_pos = [ 1, 2 ]<br>
 **Function call to solve the puzzle**<br>
 solve(initial, empty_tile_pos, final)<br>
+*OUTPUT:*<br>
+![image](https://user-images.githubusercontent.com/98145023/209543150-703d1782-a378-4167-9ba0-d331c719e337.png)<br><br><br>
+
