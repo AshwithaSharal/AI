@@ -27,8 +27,7 @@ def bfs(visited,graph,node):<br>
 print("Following is the Breadth-First Search")<br>
 bfs(visited,graph,'1')<br><br><br>
 
-
-
+# Write a Program to Implement Depth First Search using Python.
 graph = {<br>
 '5': ['3','7'],<br>
 '3': ['2','4'],<br>
@@ -50,7 +49,7 @@ def dfs(visited, graph, node): #function for dfs<br>
 print("Following is the Depth-First Search")<br>
 dfs(visited, graph, '5')<br><br><br>
 
-# Write a Program to Implement Depth First Search using Python.
+# Write a Program to Implement Best First Search using Python.
 from queue import PriorityQueue<br>
 import matplotlib.pyplot as plt<br>
 import networkx as nx<br>
