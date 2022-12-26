@@ -1,4 +1,5 @@
 # AI
+# Write a Program to Implement Breadth First Search using Python.
 graph={<br>
     '1':['2','10'],'1':['2','10'],<br>
     '2':['3','8'],<br>
@@ -49,7 +50,7 @@ def dfs(visited, graph, node): #function for dfs<br>
 print("Following is the Depth-First Search")<br>
 dfs(visited, graph, '5')<br><br><br>
 
-
+# Write a Program to Implement Depth First Search using Python.
 from queue import PriorityQueue<br>
 import matplotlib.pyplot as plt<br>
 import networkx as nx<br>
@@ -88,7 +89,8 @@ print("\nPath: ", end = "")<br>
 best_first_search(source, target, v)<br><br><br>
 
 
-from collections import defaultdict<br>
+
+# Write a Program to Implement Water-Jug Problem using Python.from collections import defaultdict<br>
 jug1, jug2, aim = 4, 3, 2<br>
 visited = defaultdict(lambda: False)<br>
 def waterJugSolver(amt1, amt2):<br>
@@ -112,6 +114,7 @@ print("Steps: ")<br>
 waterJugSolver(0, 0)<br><br><br>
 
 
+# Write a Program to Implement Tower of Hanoi usingPython.
 def TowerOfHanoi(n , source, destination, auxiliary):<br>
     if n==1:<br>
         print ("Move disk 1 from source",source,"to destination",destination)<br>
@@ -120,9 +123,9 @@ def TowerOfHanoi(n , source, destination, auxiliary):<br>
     print ("Move disk",n,"from source",source,"to destination",destination)<br>
     TowerOfHanoi(n-1, auxiliary, destination, source)<br>
 n = 3<br>
-TowerOfHanoi(n,'A','B','C')<br>
+TowerOfHanoi(n,'A','B','C')<br><br><br>
 
-
+# Write a Program to Implement Tic-Tac-Toe application using Python.
 import numpy as np<br>
 import random<br>
 from time import sleep<br>
@@ -212,6 +215,7 @@ def play_game():<br>
 print("Winner is: " + str(play_game()))<br><br><br>
 
 
+# Write a Program to Implement 8-Puzzle Problem using Python.
 **Importing copy for deepcopy function**<br>
 import copy<br>
 **Importing the heap functions from python**<br>
