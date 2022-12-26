@@ -25,7 +25,9 @@ def bfs(visited,graph,node):<br>
             visited.append(neighbour)<br>
             queue.append(neighbour)<br>
 print("Following is the Breadth-First Search")<br>
-bfs(visited,graph,'1')<br><br><br>
+bfs(visited,graph,'1')<br>
+*OUTPUT:*
+![image](https://user-images.githubusercontent.com/98145023/209536712-bd97aaaa-090a-4b12-a214-3d76ad8ed644.png)<br><br><br>
 
 # Write a Program to Implement Depth First Search using Python.
 graph = {<br>
@@ -85,7 +87,9 @@ for i in range(e):<br>
 source = int(input("Enter the Source Node: "))<br>
 target = int(input("Enter the Target/Destination Node: "))<br>
 print("\nPath: ", end = "")<br>
-best_first_search(source, target, v)<br><br><br>
+best_first_search(source, target, v)<br>
+OUTPUT:
+<br><br>
 
 
 
