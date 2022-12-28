@@ -420,3 +420,43 @@ s = 0<br>
 print(travellingSalesmanProblem(graph, s))<br>
 *OUTPUT:*<br>
 ![image](https://user-images.githubusercontent.com/98145023/209544343-85347d2c-3c18-4b4a-bc62-2e75a0ea5b5d.png)<br><br><br>
+
+
+Write a program to implement the FIND-S Algorithm for finding the most specific hypothesis based on a given set of training data samples. Read the training data from a
+.CSV file.
+import pandas as pd<br>
+import numpy as np<br>
+ 
+#to read the data in the csv file<br>
+data = pd.read_csv("Train.csv")<br>
+print(data)<br>
+ 
+#making an array of all the attributes<br>
+d = np.array(data)[:,:-1]<br>
+print("The attributes are: ",d)<br>
+ 
+#segragating the target that has positive and negative examples<br>
+target = np.array(data)[:,-1]<br>
+print("The target is: ",target)<br>
+ 
+#training function to implement find-s algorithm<br>
+def train(c,t):<br>
+    for i, val in enumerate(t):<br>
+        if val == "Yes":<br>
+            specific_hypothesis = c[i].copy()<br>
+            break<br>
+             
+    for i, val in enumerate(c):<br>
+        if t[i] == "Yes":<br>
+            for x in range(len(specific_hypothesis)):<br>
+                if val[x] != specific_hypothesis[x]:<br>
+                    specific_hypothesis[x] = '?'<br>
+                else:<br>
+                    pass<br>
+                return specific_hypothesis<br>
+ 
+#obtaining the final hypothesis<br>
+print("The final hypothesis is:",train(d,target))<br>
+*OUTPUT:*<br>
+![image](https://user-images.githubusercontent.com/98145023/209799271-cac8ba3b-30b3-479f-88e1-bf121551c7a0.png)<br><br><br>
+
