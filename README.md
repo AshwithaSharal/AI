@@ -458,5 +458,5 @@ def train(c,t):<br>
 #obtaining the final hypothesis<br>
 print("The final hypothesis is:",train(d,target))<br>
 *OUTPUT:*<br>
-![image](https://user-images.githubusercontent.com/98145023/209799271-cac8ba3b-30b3-479f-88e1-bf121551c7a0.png)<br><br><br>
+![image](https://user-images.githubusercontent.com/98145023/209805943-970cea7a-6766-4100-9a3c-68f874bd9de1.png)<br><br><br>
 
