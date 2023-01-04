@@ -385,7 +385,7 @@ solve(initial, empty_tile_pos, final)<br>
 
 
 
-# 10. Write a Program to Implement Travelling Salesman problem using Python.<br>
+# Write a Program to Implement Travelling Salesman problem using Python.<br>
 from sys import maxsize<br>
 from itertools import permutations<br>
 V = 4<br>
@@ -422,24 +422,24 @@ print(travellingSalesmanProblem(graph, s))<br>
 ![image](https://user-images.githubusercontent.com/98145023/209544343-85347d2c-3c18-4b4a-bc62-2e75a0ea5b5d.png)<br><br><br>
 
 
-Write a program to implement the FIND-S Algorithm for finding the most specific hypothesis based on a given set of training data samples. Read the training data from a
+# Write a program to implement the FIND-S Algorithm for finding the most specific hypothesis based on a given set of training data samples. Read the training data from a
 .CSV file.
 import pandas as pd<br>
 import numpy as np<br>
  
-#to read the data in the csv file<br>
+**to read the data in the csv file**<br>
 data = pd.read_csv("Train.csv")<br>
 print(data)<br>
  
-#making an array of all the attributes<br>
+**making an array of all the attributes**<br>
 d = np.array(data)[:,:-1]<br>
 print("The attributes are: ",d)<br>
  
-#segragating the target that has positive and negative examples<br>
+**segragating the target that has positive and negative examples**<br>
 target = np.array(data)[:,-1]<br>
 print("The target is: ",target)<br>
  
-#training function to implement find-s algorithm<br>
+*8training function to implement find-s algorithm**<br>
 def train(c,t):<br>
     for i, val in enumerate(t):<br>
         if val == "Yes":<br>
@@ -455,14 +455,14 @@ def train(c,t):<br>
                     pass<br>
                 return specific_hypothesis<br>
  
-#obtaining the final hypothesis<br>
+**obtaining the final hypothesis**<br>
 print("The final hypothesis is:",train(d,target))<br>
 *OUTPUT:*<br>
 ![image](https://user-images.githubusercontent.com/98145023/209805943-970cea7a-6766-4100-9a3c-68f874bd9de1.png)<br><br><br>
 
 
 
-Write a program to implement the Candidate-Elimination algorithm, For a given set of training data examples stored in a .CSV file.<br>
+#Write a program to implement the Candidate-Elimination algorithm, For a given set of training data examples stored in a .CSV file.<br>
 import csv<br>
 with open("Train.csv") as f:<br>
     csv_file=csv.reader(f)<br>
@@ -498,7 +498,7 @@ print("\nFinal general hypothesis:\n",gh)<br>
 
 
 
-Write a Program to Implement N-Queens Problem using Python.<br>
+#Write a Program to Implement N-Queens Problem using Python.<br>
 global N<br>
 N = 4<br>
 def printSolution(board):<br>
@@ -544,3 +544,117 @@ def solveNQ():<br>
 solveNQ()<br>
 *OUTPUT:*<br>
 ![image](https://user-images.githubusercontent.com/98145023/210223012-85598c5e-61cb-49c9-9c60-340ca431fd9a.png)<br><br><br>
+
+
+#Write a Program to Implement A* algorithm using Python.<br>
+def aStarAlgo(start_node, stop_node):<br>
+         
+        open_set = set(start_node) <br>
+        closed_set = set()<br>
+        g = {} #store distance from starting node<br>
+        parents = {}# parents contains an adjacency map of all nodes<br>
+ 
+        **ditance of starting node from itself is zero**<br>
+        g[start_node] = 0<br>
+        **start_node is root node i.e it has no parent nodes**so start_node is set to its own parent node<br>
+        parents[start_node] = start_node<br>
+         
+         
+        while len(open_set) > 0:<br>
+            n = None<br>
+ 
+          **node with lowest f() is found**<br>
+            for v in open_set:<br>
+                if n == None or g[v] + heuristic(v) < g[n] + heuristic(n):<br>
+                    n = v<br>
+             
+                     
+            if n == stop_node or Graph_nodes[n] == None:<br>
+                pass<br>
+            else:<br>
+                for (m, weight) in get_neighbors(n):<br>
+                    **nodes 'm' not in first and last set are added to first**<br>
+                    #n is set its parent<br>
+                    if m not in open_set and m not in closed_set:<br>
+                        open_set.add(m)<br>
+                        parents[m] = n<br>
+                        g[m] = g[n] + weight<br>
+                         
+     
+                   **for each node m,compare its distance from start i.e g(m) to the**<br>
+                    **from start through n node**<br>
+                    else:
+                        if g[m] > g[n] + weight:<br>
+                            #update g(m)<br>
+                            g[m] = g[n] + weight<br>
+                            #change parent of m to n<br>
+                            parents[m] = n<br>
+                             
+                            **if m in closed set,remove and add to open**<br>
+                            if m in closed_set:<br>
+                                closed_set.remove(m)<br>
+                                open_set.add(m)<br>
+ 
+            if n == None:<br>
+                print('Path does not exist!')<br>
+                return None<br>
+ 
+            ** if the current node is the stop_node**<br>
+           ** then we begin reconstructin the path from it to the start_node**<br>
+            if n == stop_node:<br>
+                path = []<br>
+ 
+                while parents[n] != n:<br>
+                    path.append(n)<br>
+                    n = parents[n]<br>
+ 
+                path.append(start_node)<br>
+ 
+                path.reverse()<br>
+ 
+                print('Path found: {}'.format(path))<br>
+                return path<br>
+ 
+ 
+          ** remove n from the open_list, and add it to closed_list**<br>
+           ** because all of his neighbors were inspected**<br>
+            open_set.remove(n)<br>
+            closed_set.add(n)<br>
+ 
+        print('Path does not exist!')<br>
+        return None<br>
+         
+**define fuction to return neighbor and its distance**<br>
+**from the passed node**<br>
+def get_neighbors(v):<br>
+    if v in Graph_nodes:<br>
+        return Graph_nodes[v]<br>
+    else:<br>
+        return None<br>
+**for simplicity we ll consider heuristic distances given**<br>
+**and this function returns heuristic distance for all nodes**<br>
+def heuristic(n):<br>
+        H_dist = {<br>
+            'A': 11,<br>
+            'B': 6,<br>
+            'C': 99,<br>
+            'D': 1,<br>
+            'E': 7,<br>
+            'G': 0,<br>
+             
+        }<br>
+ 
+        return H_dist[n]<br>
+ 
+**Describe your graph here <br> 
+Graph_nodes = {<br>
+    'A': [('B', 2), ('E', 3)],<br>
+    'B': [('C', 1),('G', 9)],<br>
+    'C': None,<br>
+    'E': [('D', 6)],<br>
+    'D': [('G', 1)],<br>
+     
+}<br>
+aStarAlgo('A','G')<br>
+*OUTPUT:*<br>
+![image](https://user-images.githubusercontent.com/98145023/210535733-c331764e-e7f8-4a8d-8886-63e3bbec85ff.png)<br><br><br>
