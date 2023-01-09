@@ -439,7 +439,7 @@ print("The attributes are: ",d)<br>
 target = np.array(data)[:,-1]<br>
 print("The target is: ",target)<br>
  
-*8training function to implement find-s algorithm**<br>
+**training function to implement find-s algorithm**<br>
 def train(c,t):<br>
     for i, val in enumerate(t):<br>
         if val == "Yes":<br>
@@ -462,7 +462,7 @@ print("The final hypothesis is:",train(d,target))<br>
 
 
 
-#Write a program to implement the Candidate-Elimination algorithm, For a given set of training data examples stored in a .CSV file.<br>
+# Write a program to implement the Candidate-Elimination algorithm, For a given set of training data examples stored in a .CSV file.<br>
 import csv<br>
 with open("Train.csv") as f:<br>
     csv_file=csv.reader(f)<br>
@@ -498,7 +498,7 @@ print("\nFinal general hypothesis:\n",gh)<br>
 
 
 
-#Write a Program to Implement N-Queens Problem using Python.<br>
+# Write a Program to Implement N-Queens Problem using Python.<br>
 global N<br>
 N = 4<br>
 def printSolution(board):<br>
@@ -546,7 +546,7 @@ solveNQ()<br>
 ![image](https://user-images.githubusercontent.com/98145023/210223012-85598c5e-61cb-49c9-9c60-340ca431fd9a.png)<br><br><br>
 
 
-#Write a Program to Implement A* algorithm using Python.<br>
+# Write a Program to Implement A* algorithm using Python.<br>
 def aStarAlgo(start_node, stop_node):<br>
          
         open_set = set(start_node) <br>
