@@ -658,3 +658,103 @@ Graph_nodes = {<br>
 aStarAlgo('A','G')<br>
 *OUTPUT:*<br>
 ![image](https://user-images.githubusercontent.com/98145023/210535733-c331764e-e7f8-4a8d-8886-63e3bbec85ff.png)<br><br><br>
+
+
+
+# Write a Program to Implement AO* algorithm using Python.<br>
+class Graph:<br>
+    def __init__(self, graph, heuristicNodeList, startNode):<br>
+        self.graph = graph<br>
+        self.H=heuristicNodeList<br>
+        self.start=startNode<br>
+        self.parent={}<br>
+        self.status={}<br>
+        self.solutionGraph={}<br>
+
+    def applyAOStar(self):<br>
+        self.aoStar(self.start, False)<br>
+
+    def getNeighbors(self, v):<br>
+        return self.graph.get(v,'')<br>
+
+    def getStatus(self,v):<br>
+        return self.status.get(v,0)<br>
+
+    def setStatus(self,v, val):<br>
+        self.status[v]=val<br>
+
+    def getHeuristicNodeValue(self, n):<br>
+        return self.H.get(n,0)<br>
+
+    def setHeuristicNodeValue(self, n, value):<br>
+        self.H[n]=value<br>
+        
+    def printSolution(self):<br>
+        print("FOR GRAPH SOLUTION, TRAVERSE THE GRAPH FROM THE STARTNODE:",self.start)<br>
+        print("------------------------------------------------------------")<br>
+        print(self.solutionGraph)<br>
+        print("------------------------------------------------------------")<br>
+
+    def computeMinimumCostChildNodes(self, v):<br>
+        minimumCost=0<br>
+        costToChildNodeListDict={}<br>
+        costToChildNodeListDict[minimumCost]=[]<br>
+        flag=True<br>
+        for nodeInfoTupleList in self.getNeighbors(v):<br>
+            cost=0<br>
+            nodeList=[]<br>
+            for c, weight in nodeInfoTupleList:<br>
+                cost=cost+self.getHeuristicNodeValue(c)+weight<br>
+                nodeList.append(c)<br>
+            if flag==True:<br>
+                minimumCost=cost<br>
+                costToChildNodeListDict[minimumCost]=nodeList<br>
+                flag=False<br>
+            else:<br>
+                if minimumCost>cost:<br>
+                    minimumCost=cost<br>
+                    costToChildNodeListDict[minimumCost]=nodeList<br>
+        return minimumCost, costToChildNodeListDict[minimumCost]<br>
+
+    def aoStar(self, v, backTracking):<br>
+        print("HEURISTIC VALUES :", self.H)<br>
+        print("SOLUTION GRAPH :", self.solutionGraph)<br>
+        print("PROCESSING NODE :", v)<br>
+        print("-----------------------------------------------------------------------------------------")<br>
+        if self.getStatus(v) >= 0:<br>
+            minimumCost, childNodeList = self.computeMinimumCostChildNodes(v)<br>
+            print(minimumCost, childNodeList)<br>
+            self.setHeuristicNodeValue(v, minimumCost)<br>
+            self.setStatus(v,len(childNodeList))<br>
+            solved=True<br>
+            for childNode in childNodeList:<br>
+                self.parent[childNode]=v<br>
+                if self.getStatus(childNode)!=-1:<br>
+                    solved=solved & False<br>
+        if solved==True:<br>
+            self.setStatus(v,-1)<br>
+            self.solutionGraph[v]=childNodeList<br>
+        if v!=self.start:<br>
+            self.aoStar(self.parent[v], True)<br>
+        if backTracking==False:<br>
+            for childNode in childNodeList:<br>
+                self.setStatus(childNode,0)<br>
+                self.aoStar(childNode, False)<br>
+
+print ("Graph - 1")<br>
+h1 = {'A': 1, 'B': 6, 'C': 2, 'D': 12, 'E': 2, 'F': 1, 'G': 5, 'H': 7, 'I': 7, 'J': 1}<br>
+graph1 = {<br>
+    'A': [[('B', 1), ('C', 1)], [('D', 1)]],<br>
+    'B': [[('G', 1)], [('H', 1)]],<br>
+    'C': [[('J', 1)]],<br>
+    'D': [[('E', 1), ('F', 1)]],<br>
+    'G': [[('I', 1)]]<br>
+}<br>
+G1= Graph(graph1, h1, 'A')<br>
+G1.applyAOStar()<br>
+G1.printSolution()<br>
+*OUTPUT:*<br>
+![image](https://user-images.githubusercontent.com/98145023/211280499-5ec765e5-3cff-477a-a228-351afedcdd3f.png)<br>
+![image](https://user-images.githubusercontent.com/98145023/211280604-10a1c61d-9cf6-4064-9d73-97f94d496c75.png)<br><br><br>
+
+
